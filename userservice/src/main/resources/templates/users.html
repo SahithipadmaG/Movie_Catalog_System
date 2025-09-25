@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <h2>User Profile</h2>
+            </div>
+            <div class="col-md-4 text-right">
+                <a href="/home" class="btn btn-primary mr-2">Dashboard</a>
+                <a href="/logout" class="btn btn-secondary">Logout</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                My Profile
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="user : ${users}">
+                            <td th:text="${user.name}">Name</td>
+                            <td th:text="${user.email}">Email</td>
+                            <td th:text="${user.password}">Password</td>
+                            <td th:text="${user.phone}">Phone</td>
+                            <td>
+                                <a th:href="@{/users/edit/{id}(id=${user.id})}" class="btn btn-warning btn-sm">Edit</a>
+                                <a th:href="@{/users/delete/{id}(id=${user.id})}" class="btn btn-danger btn-sm" 
+                                   onclick="return confirm('Are you sure you want to delete your account? This action cannot be undone.')">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

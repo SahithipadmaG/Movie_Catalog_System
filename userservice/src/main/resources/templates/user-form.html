@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${isEdit} ? 'Edit User' : 'Create User'"></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+            
+                <h2 th:text="${isEdit} ? 'Edit User' : 'Create User'"></h2>
+                
+                <form th:action="${isEdit} ? @{/users/update/{id}(id=${user.id})} : @{/users/create}" 
+                      th:object="${user}" method="post">
+                    
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" th:field="*{name}" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" th:field="*{email}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="text" class="form-control" id="password" th:field="*{password}" required>
+                    </div>
+                    
+                     <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" th:field="*{phone}" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" th:text="${isEdit} ? 'Update' : 'Create'"></button>
+                    <a href="/users" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

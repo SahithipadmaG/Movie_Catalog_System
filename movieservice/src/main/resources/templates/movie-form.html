@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${isEdit != null && isEdit} ? 'Edit Movie' : 'Create Movie'">Add New Movies</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 th:text="${isEdit != null && isEdit} ? 'Edit Movie' : 'Create Movie'"></h2>
+
+                <form th:action="@{/movies/save}" th:object="${movie}" method="post">
+                    <!-- Add hidden field for ID to handle updates -->
+                    <input type="hidden" th:field="*{id}" />
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" th:field="*{name}" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <input type="text" class="form-control" id="genre" th:field="*{name}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" th:field="*{description}" rows="3" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rating">Rating</label>
+                        <input type="number" step="0.01" class="form-control" id="rating" th:field="*{rating}" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" th:text="${isEdit != null && isEdit} ? 'Update' : 'Add'"></button>
+                    <a href="/movies" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

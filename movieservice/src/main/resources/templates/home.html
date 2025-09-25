@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Service - Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">MovieServices</h1>
+            <p class="lead">Movie and Server Maintenance page</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Movies</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Create, read, update, and delete movies.</p>
+                            <a href="/movies" class="btn btn-primary">Manage Movies</a>
+                        </div>
+                    </div>
+                </div>
+               <!--   <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>User Integration</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>View users from the User Service.</p>
+                            <a href="/cross-service/users" class="btn btn-secondary">View Users</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        
+        <div class="container mt-4">
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h5>Service Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Movie Service Status: <span class="badge badge-success">Running</span></p>
+                        <p>User Service Status: <span class="badge badge-success">Running</span></p>
+    
+                     </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
